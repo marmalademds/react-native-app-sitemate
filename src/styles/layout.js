@@ -7,9 +7,10 @@ export const layout = StyleSheet.create({
       alignItems: 'center',
     },
     searchBar: {
-        borderWidth: 1,
+        borderWidth: 2,
         marginHorizontal: 16,
         marginVertical: 8,
+        borderRadius: 5,
     },
     flatListItem: {
         backgroundColor: '#6fbbd6',
@@ -19,7 +20,7 @@ export const layout = StyleSheet.create({
         borderRadius: 10,
     },
     button: {
-        backgroundColor: 'blue',
+        backgroundColor: '#f194ff',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,

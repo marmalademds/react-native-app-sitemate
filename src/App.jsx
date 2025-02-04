@@ -42,9 +42,11 @@ const RootNavigator = () => {
 
   switch (navigation) {
       case NAV.HOME:
-        return <Home />;
+        return <Home />
+      case NAV.NEWSLIST:
+        return <NewsList />
       case NAV.DETAIL:
-        return <Detail />;
+        return <Detail />
       default: return null
   }
 }

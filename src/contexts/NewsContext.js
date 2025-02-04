@@ -4,28 +4,36 @@ import { useState, useEffect, useContext, createContext } from 'react'
 const NewsContext = createContext()
 
 export const NewsProvider = ({children}) => {
+    const [query, setQuery] = useState('')
     const [news, setNews] = useState([])
     const [newsIsLoading, setNewsIsLoading] = useState(false)
+    const [triggerNews, setTriggerNews] = useState(false)
 
     const getNews = async () => {
         setNewsIsLoading(true)
-        const newsResponse = await newsApi()
+        const newsResponse = await newsApi(query)
         setNews(newsResponse)
         setNewsIsLoading(false)
+        setTriggerNews(false)
     }
 
     useEffect(() => {
         const runAsync = async () => {
             await getNews()
         }
-        runAsync()
-    }, [])
+        if (triggerNews) {
+            runAsync()
+        }
+    }, [triggerNews])
 
     return (
         <NewsContext.Provider
             value = {{
+                query,
+                setQuery,
                 news,
-                newsIsLoading
+                newsIsLoading,
+                setTriggerNews,
             }}
         >
             {children}

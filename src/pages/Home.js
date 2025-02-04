@@ -9,70 +9,45 @@ import {
 } from 'react-native'
 import { useNavigation, useNews } from "../contexts"
 import { text, layout } from '../styles'
+import { SearchBar, LaunchButton } from '../components'
 
 export const Home = () => {
     const { navigation, setNavigation, NAV } = useNavigation()
-    const { news } = useNews()
+    const { news, query, setQuery, setTriggerNews } = useNews()
 
     const newsArticles = news.articles
     
     console.log(newsArticles)
 
-    return (
-        <View>
-            <FlatList
-                data={newsArticles}
-                keyExtractor={(item) => item.url}
-                renderItem={renderItem}
-            >
-            </FlatList>
-        </View>
-    )
-}
+    const onChangeText = (text) => {
+        setQuery(text)
+    }
 
-const renderItem = (item) => {
+    const onButtonPress = () => {
+        setTriggerNews(true)
+    }
+
     return (
-        <View style={[
-            layout.flatListItem,
-            layout.row,
-          ]}>
+        <View
+            style={[
+                layout.fullWidth,
+            ]}
+        >
             <View
                 style={[
-                    layout.fw20,
-                    layout.paddingSmall
+                    layout.fw80,
                 ]}
             >
-                <Image
-                    style={[
-                        layout.thumbnail
-                    ]}
-                    source={{uri: item.item.urlToImage}}
+                <SearchBar 
+                    onChangeText={onChangeText}
+                    searchText={query}
                 />
             </View>
-            <View
-                style={[
-                    layout.fw80
-                ]}
-            >
-                <View>
-                    <Text
-                        style={[
-                            text.fsmall
-                        ]}
-                    >
-                            {item.item.title}
-                    </Text>
-                </View>
-                <View>
-                    <Text
-                        style={[
-                            text.fboldsmall
-                        ]}
-                    >
-                            by {item.item.author}
-                    </Text>
-                </View>
-
+            <View>
+                <LaunchButton 
+                    label={'Go!'}
+                    onPress={onButtonPress}
+                />
             </View>
         </View>
     )
