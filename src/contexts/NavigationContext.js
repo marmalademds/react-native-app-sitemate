@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react"
 
 const NAV = {
     HOME: 'HOME',
+    NEWSLIST: 'NEWSLIST',
     DETAIL: 'DETAIL',
 }
 
