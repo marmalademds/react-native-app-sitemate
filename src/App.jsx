@@ -5,8 +5,10 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import {
+  Home,
+  Detail,
 } from './pages'
-import { useNews } from './contexts'
+import { useNews, useNavigation, NavigationProvider, NewsProvider } from './contexts'
 import {
   text,
   layout
@@ -14,52 +16,37 @@ import {
 
 export const App = () => {
   return (
-    <SafeAreaView
-      style={[
-        layout.app,
-      ]}
-    >
-      <RootNavigator />
-    </SafeAreaView>
+    <NavigationProvider>
+      <NewsProvider>
+        <SafeAreaView
+          style={[
+            layout.container,
+          ]}
+        >
+          <RootNavigator />
+        </SafeAreaView>
+      </NewsProvider>
+    </NavigationProvider>
   )
 }
 
 const RootNavigator = () => {
-  // const { navigation, setNavigation, NAV } = useNavigation()
-  // const { randomUsersIsLoading } = useRandomUser()
-  // console.log(navigation)
+  const { navigation, setNavigation, NAV } = useNavigation()
+  const { newsIsLoading } = useNews()
 
-  // useEffect(() => {
-  //   if (randomUsersIsLoading) {
-  //     console.log('Loading users...')
-  //   }
-  //   else {
-  //     console.log('Users loaded')
-  //   }
-  // }, [randomUsersIsLoading])
+  if (newsIsLoading) {
+    return (
+      <ActivityIndicator size="large" color="#0000ff" />
+    )
+  }
 
-  // if (randomUsersIsLoading) {
-  //   return (
-  //     <ActivityIndicator size="large" color="#0000ff" />
-  //   )
-  // }
-
-  // switch (navigation) {
-  //   case NAV.HOME:
-  //     return <List />;
-  //   case NAV.DETAIL:
-  //     return <BookDetailScreen />;
-  //   case NAV.COUNTER:
-  //     return <Counter />;
-  //   case NAV.USERS:
-  //     return <Users />;
-  //   default:
-  //     return null;
-  // }
-
-  return (
-    <Text>Hello World</Text>
-  )
+  switch (navigation) {
+      case NAV.HOME:
+        return <Home />;
+      case NAV.DETAIL:
+        return <Detail />;
+      default: return null
+  }
 }
 
 export default App

@@ -12,10 +12,11 @@ export const layout = StyleSheet.create({
         marginVertical: 8,
     },
     flatListItem: {
-        backgroundColor: '#f9c2ff',
-        padding: 20,
-        marginVertical: 8,
+        backgroundColor: '#6fbbd6',
+        padding: 10,
+        marginVertical: 5,
         marginHorizontal: 16,
+        borderRadius: 10,
     },
     button: {
         backgroundColor: 'blue',
@@ -43,14 +44,6 @@ export const layout = StyleSheet.create({
     column: {
         flexDirection: 'column', // Aligns children in a column (default behavior)
         alignItems: 'flex-start', // Aligns children to the left
-    },
-    flatListItem: {
-        flexDirection: 'row',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-        alignItems: 'center',
     },
     center: {
         justifyContent: 'center',
@@ -97,5 +90,11 @@ export const layout = StyleSheet.create({
     },
     flex1: {
         flex: 1, // Makes the element take up available space
+    },
+    fw80: {
+        maxWidth: "80%",
+    },
+    fw20: {
+        maxWidth: "20%",
     },
   })
