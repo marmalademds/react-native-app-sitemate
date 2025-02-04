@@ -7,7 +7,7 @@ export const layout = StyleSheet.create({
       alignItems: 'center',
     },
     searchBar: {
-        borderWidth: 2,
+        borderWidth: 1,
         marginHorizontal: 16,
         marginVertical: 8,
         borderRadius: 5,

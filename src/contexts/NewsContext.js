@@ -8,6 +8,7 @@ export const NewsProvider = ({children}) => {
     const [news, setNews] = useState([])
     const [newsIsLoading, setNewsIsLoading] = useState(false)
     const [triggerNews, setTriggerNews] = useState(false)
+    const [selectedArticle, setSelectedArticle] = useState()
 
     const getNews = async () => {
         setNewsIsLoading(true)
@@ -32,8 +33,11 @@ export const NewsProvider = ({children}) => {
                 query,
                 setQuery,
                 news,
+                setNews,
                 newsIsLoading,
                 setTriggerNews,
+                setSelectedArticle,
+                selectedArticle,
             }}
         >
             {children}

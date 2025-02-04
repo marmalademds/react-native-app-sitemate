@@ -1,11 +1,7 @@
 import { useState } from "react"
 import {
-    Text,
     View,
-    FlatList,
-    TextInput,
-    TouchableOpacity,
-    Image,
+    Text,
 } from 'react-native'
 import { useNavigation, useNews } from "../contexts"
 import { text, layout } from '../styles'
@@ -25,14 +21,23 @@ export const Home = () => {
 
     const onButtonPress = () => {
         setTriggerNews(true)
+        setNavigation(NAV.NEWSLIST)
     }
 
     return (
         <View
             style={[
                 layout.fullWidth,
+                layout.center,
             ]}
         >
+            <Text
+                style={[
+                    text.heading
+                ]}
+            >
+                News Article Search
+            </Text>
             <View
                 style={[
                     layout.fw80,

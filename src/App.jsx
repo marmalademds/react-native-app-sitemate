@@ -7,6 +7,7 @@ import {
 import {
   Home,
   Detail,
+  NewsList,
 } from './pages'
 import { useNews, useNavigation, NavigationProvider, NewsProvider } from './contexts'
 import {
@@ -21,6 +22,9 @@ export const App = () => {
         <SafeAreaView
           style={[
             layout.container,
+            {
+              backgroundColor: '#cfefff'
+            }
           ]}
         >
           <RootNavigator />
