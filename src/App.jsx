@@ -6,8 +6,7 @@ import {
 } from 'react-native'
 import {
 } from './pages'
-import {
-} from './contexts'
+import { useNews } from './contexts'
 import {
   text,
   layout
