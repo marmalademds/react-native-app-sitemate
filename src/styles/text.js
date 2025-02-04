@@ -37,11 +37,11 @@ export const text = StyleSheet.create({
         color: '#666',
         lineHeight: 24, // Adds line spacing for readability
     },
-        smallText: {
+    smallText: {
         fontSize: 14,
         color: '#999',
     },
-        linkText: {
+    linkText: {
         fontSize: 16,
         color: '#007bff',
         textDecorationLine: 'underline', // Adds an underline to the text
@@ -51,11 +51,11 @@ export const text = StyleSheet.create({
         fontWeight: 'bold',
         color: '#333',
     },
-        mutedText: {
+    mutedText: {
         fontSize: 16,
         color: '#aaa',
     },
-        centeredText: {
+    centeredText: {
         textAlign: 'center',
         color: '#333',
     },
